@@ -76,16 +76,6 @@ MongoClient.connect('mongodb+srv://Hoszajbakurlak:6NKw5VMSezvA@cluster0.mntmf.mo
       res.send(results)
     })  
   });
-  app.put('/collection/:collectionName/:id', (req, res, next) => {
-    req.collection.updateOne(
-      {_id: new ObjectID(req.params.id)},
-      {$set: req.body},
-      {safe: true, multi: false},
-      (e, result) => {
-        if (e) return next(e)
-          res.send(result)
-    })  
-  })
 })
 
 const PORT = process.env.PORT || 8080;
